@@ -10,9 +10,20 @@
          "integrity": {
 		"https://cdn.jsdelivr.net/npm/leaflet@2.0.0-beta.1/dist/leaflet.js": "sha256-KSSQ64wnHC2i4zVNU79jUjWmdKCIJjLj/gkifFEluvo="}}
 	</script>
+	
+	<!-- make map take up whole page -->
+	<style>
+		html, body{
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%;
+		}
+	</style>
+
 </head>
 <body>
-	<div id="map" style="height: 400px"></div>
+	<div id="map" style="height: 100%; width: 100%;"></div>
 	<script type="module">
 		import {LeafletMap, TileLayer, Marker, Circle, Polygon} from 'leaflet';
         
