@@ -47,6 +47,7 @@
 
 	// creating a dataset for the map - longitude, latitude for coordinates
 		const dataset = [
+			//Los Alamos, New Mexico
 			{
 				type: 'Feature',
 				geometry: {type: 'Point', coordinates: [-106.32, 35.87]},
@@ -55,8 +56,9 @@
 					description: 'During World War II, Los Alamos, New Mexico was transformed into "Site Y," a top-secret wartime laboratory and closed city dedicated to designing and building the world\'s first atomic weapons dropped in Trinity Site, New Mexico and Nagasaki and Hiroshima, Japan.',
 					year: 1943,
 					read: 'https://www.nps.gov/mapr/los-alamos.htm',
-					image: //'images/losalamos.jpg',
-					// alt: alternative text accessibility,
+					image: 'images/losalamos.jpg',
+					alt: 'Black-and-white historical photograph showing Los Alamos Project Main Gate, a guarded entrance during Manhattan Project era. Small gatehouse displays sign reading “Passes Must Be Presented to Guards,” with parked vintage car, utility poles, fencing, and “Post No. 1” label.',
+					figcaption: '<a href="https://commons.wikimedia.org/wiki/File:Los_Alamos_Main_Gate_(2).jpg">United States Army</a>, Public domain, via Wikimedia Commons',
 					icon: { 
 						iconUrl: 'images/radiation.png', 
 						iconSize: [32, 32], 
@@ -64,7 +66,67 @@
 						popupAnchor: [0, -16]
 					}
 				}
-			}
+			},
+			//Oak Ridge, Tennessee
+			{
+				type: 'Feature',
+				geometry: {type: 'Point', coordinates: [-84.25283, 35.98633]},
+				properties: {
+					title: 'Oak Ridge, Tennessee',
+					description: 'During World War II, Oak Ridge, Tennessee was transformed into  the Y-12 Electromagnetic Separation Plant to enrich uranium-235 (known as "product 25") for atomic weapons using electromechanical devices called calutrons. The site produced the enriched uranium, which was then securely shipped from Tennessee to Site Y in New Mexico so scientists could assemble it into the core of the "Little Boy" bomb dropped on Hiroshima. At its World War II peak, the facility employed roughly 22,000 workers, notably young women operators known as the "Calutron Girls".',
+					year: 1943,
+					read: 'https://www.nps.gov/places/oak-ridge-tennessee.htm',
+					image: 'images/calutrongirls.jpg',
+					alt: 'Black-and-white historical photograph showing women operating equipment inside a large industrial control room. Rows of numbered electrical panels, switches, gauges, stools, overhead lights, and repeated operators emphasize scale and coordinated manual monitoring.',
+					figcaption: '<a href="https://commons.wikimedia.org/wiki/File:Y12_Calutron_Operators.jpg">Ed Westcott / US Army / Manhattan Engineering District</a>, Public domain, via Wikimedia Commons',
+					icon: { 
+						iconUrl: 'images/radiation.png', 
+						iconSize: [32, 32], 
+						iconAnchor: [16, 16], 
+						popupAnchor: [0, -16]
+					}
+				}
+			},
+			// Hanford, Washington
+			{
+				type: 'Feature',
+				geometry: {type: 'Point', coordinates: [-119.300420, 46.318555]},
+				properties: {
+					title: 'Hanford, Washington',
+					description: 'During World War II, Hanford Site was established along the Columbia River in southeastern Washington State as one of the three top-secret facilities. It was given the code name Site W. It produced plutonium for the Trinity test and the Fat Man bomb dropped on Nagasaki. It is recognized as the Western Hemisphere\'s most contaminated nuclear site, currently undergoing a massive, decades-long cleanup overseen jointly by federal and state agencies under the Tri-Party Agreement.',
+					year: 1943,
+					read: 'https://www.nps.gov/mapr/about-hanford.htm',
+					image: 'images/hanford.jpg',
+					alt: 'Aerial black-and-white photograph shows an industrial power or processing facility beside a wide river, surrounded by barren, heavily tracked terrain. Buildings, roads, parking areas, tall smokestack, cooling structures, and distant steam plume highlight large-scale industrial activity.',
+					figcaption: '<a href="https://commons.wikimedia.org/wiki/File:Hanford_N_Reactor_adjusted.jpg">United States Department of Energy</a>, Public domain, via Wikimedia Commons',
+					icon: { 
+						iconUrl: 'images/radiation.png', 
+						iconSize: [32, 32], 
+						iconAnchor: [16, 16], 
+						popupAnchor: [0, -16]
+					}
+				}
+			},
+			// Alamogordo / Trinity Site, New Mexico
+			{
+				type: 'Feature',
+				geometry: {type: 'Point', coordinates: [-106.4753, 33.6772]},
+				properties: {
+					title: 'Alamogordo / Trinity Site, New Mexico',
+					description: 'The atomic bomb was detonated on July 16, 1945 for the first time in history. The US government conducted the trinity test in Alamogordo, New Mexico. Nearly 500,000 civilians lived within a 150-mile radius of the July 16, 1945, Trinity nuclear test site in New Mexico, despite the military\'s claims that the area was isolated.',
+					year: 1945,
+					read: 'https://www.energy.gov/lm/trinity-site-worlds-first-nuclear-explosion',
+					image: 'images/trinity.jpg',
+					alt: 'Black-and-white photograph shows a large rounded dust-and-debris dome rising from a flat surface against a dark background. Speckled dome and broad rubble ring suggest a powerful ground-level explosion or impact event.',
+					figcaption: '<a href="https://commons.wikimedia.org/wiki/File:Trinity_Test_Fireball_16ms.jpg">Berlyn Brixner / Los Alamos National Laboratory</a>, Public domain, via Wikimedia Commons',
+					icon: { 
+						iconUrl: 'images/radiation.png', 
+						iconSize: [32, 32], 
+						iconAnchor: [16, 16], 
+						popupAnchor: [0, -16]
+					}
+				}
+			},
 		]
 
 	// Create markers from dataset
@@ -74,7 +136,14 @@
 					icon: new Icon(feature.properties.icon)
 				}).addTo(map);
 			
-			marker.bindPopup(`<b>${feature.properties.title}</b> <img src="${feature.properties.image}" alt="${feature.properties.alt}"> <p>Year: ${feature.properties.year}</p> <p>${feature.properties.description}</p> <a href="${feature.properties.icon.read}" target="_blank">Read more here!</a>`);
+			marker.bindPopup(
+				`<div style= "padding: 0px 5px 5px 0px; font-size: large;"><b>${feature.properties.title}</b></div>
+				<img src="${feature.properties.image}" alt="${feature.properties.alt}" style="width: 100%; max-width: 250px height: auto;"> 
+				<figcaption style='font-size: smaller'>${feature.properties.figcaption}</figcaption> 
+				<p>Year: ${feature.properties.year}</p> 
+				<p>${feature.properties.description}</p> 
+				<a href="${feature.properties.read}" target="_blank">Read more here!</a>`
+			);
 		
 			marker.feature = feature; // Store the feature data in the marker for later use
 			return marker;
