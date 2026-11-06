@@ -45,31 +45,23 @@
 	        attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	        ext: 'png'}).addTo(map);
 
-		// adding markers to the map using GeoJSON data
+		// adding GeoJSON layer
 		new GeoJSON(geojsonFeature).addTo(map);
 
-		function onEachFeature(feature, layer) {
-			if (feature.properties && feature.properties.popupContent) {
-				layer.bindPopup(feature.properties.popupContent);
+		// creating a dataset for the map - longitude, latitude for coordinates
+		const dataset = [
+			{
+				type: 'Feature',
+				geometry: {type: 'Point', coordinates: [106.32, 35.87]},
+				properties: {
+					title: 'Los Alamos, New Mexico',
+					decription: 'During World War II, Los Alamos, New Mexico was transformed into "Site Y," a top-secret wartime laboratory and closed city dedicated to designing and building the world\'s first atomic weapons dropped in Trinity Site, New Mexico and Nagasaki and Hiroshima, Japan.',
+					year: 1943,
+					icon: { iconUrl: 'images/radiation.png', iconSize: [40, 40], iconAnchor: [20, 40], popupAnchor: [0, -40]}
+				}
 			}
-		}
-		const geojsonFeature = {
-	"type": "Feature",
-	"properties": {
-		"name": "Coors Field",
-		"amenity": "Baseball Stadium",
-		"popupContent": "This is where the Rockies play!"
-	},
-	"geometry": {
-		"type": "Point",
-		"coordinates": [-104.99404, 39.75621]
-	}
-};
-
-new GeoJSON(geojsonFeature, {
-	onEachFeature: onEachFeature
-}).addTo(map);
-	</script>
+		]
+		</script>
 
 	
 </body>
