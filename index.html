@@ -53,5 +53,14 @@
         const marker2 = new Marker([36.7477,-119.7724]).addTo(map);
             marker2.bindPopup("<b>Hello world!</b><br>I am a popup.");
 	</script>
+
+	<!--GeoJSON code - adding markers to map via csv-->
+	new GeoJSON(data, {
+		style: function (feature){
+			return {color: feature.properties.color};
+		}	
+	}).bindPopup(function (layer){
+		return layer.feature.properties.description;
+	}).addTo(map);
 </body>
 </html>
