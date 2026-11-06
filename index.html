@@ -36,7 +36,7 @@
 	<script type="module">
 		import {LeafletMap, TileLayer, Marker, Circle, Polygon} from 'leaflet';
         
-        // setting the map view to the center of the US
+        // initializing map to the center of the US
         const map = new LeafletMap('map').setView([40.3,-96.6], 5);
 		
         // the map code for the tile layer
@@ -45,22 +45,32 @@
 	        attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	        ext: 'png'}).addTo(map);
 
-		// adding markers to the map
-        // experimental marker 1: center of the US
-        const marker = new Marker([40.3,-96.6]).addTo(map);
-            marker.bindPopup("<b>Hello world!</b><br>I am a popup.");
-        // experimental marker 2: Fresno, CA
-        const marker2 = new Marker([36.7477,-119.7724]).addTo(map);
-            marker2.bindPopup("<b>Hello world!</b><br>I am a popup.");
+		// adding markers to the map using GeoJSON data
+		new GeoJSON(geojsonFeature).addTo(map);
+
+		function onEachFeature(feature, layer) {
+			if (feature.properties && feature.properties.popupContent) {
+				layer.bindPopup(feature.properties.popupContent);
+			}
+		}
+		const geojsonFeature = {
+	"type": "Feature",
+	"properties": {
+		"name": "Coors Field",
+		"amenity": "Baseball Stadium",
+		"popupContent": "This is where the Rockies play!"
+	},
+	"geometry": {
+		"type": "Point",
+		"coordinates": [-104.99404, 39.75621]
+	}
+};
+
+new GeoJSON(geojsonFeature, {
+	onEachFeature: onEachFeature
+}).addTo(map);
 	</script>
 
-	<!--GeoJSON code - adding markers to map via csv-->
-	new GeoJSON(data, {
-		style: function (feature){
-			return {color: feature.properties.color};
-		}	
-	}).bindPopup(function (layer){
-		return layer.feature.properties.description;
-	}).addTo(map);
+	
 </body>
 </html>
