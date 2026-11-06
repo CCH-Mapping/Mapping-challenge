@@ -55,8 +55,9 @@
 					description: 'During World War II, Los Alamos, New Mexico was transformed into "Site Y," a top-secret wartime laboratory and closed city dedicated to designing and building the world\'s first atomic weapons dropped in Trinity Site, New Mexico and Nagasaki and Hiroshima, Japan.',
 					year: 1943,
 					read: 'https://www.nps.gov/mapr/los-alamos.htm',
-					image: //'images/losalamos.jpg',
-					// alt: alternative text accessibility,
+					image: 'images/losalamos.jpg',
+					alt: 'Black-and-white historical photograph showing Los Alamos Project Main Gate, a guarded entrance during Manhattan Project era. Small gatehouse displays sign reading “Passes Must Be Presented to Guards,” with parked vintage car, utility poles, fencing, and “Post No. 1” label.',
+					figcaption: '<a href="https://commons.wikimedia.org/wiki/File:Los_Alamos_Main_Gate_(2).jpg">United States Army</a>, Public domain, via Wikimedia Commons',
 					icon: { 
 						iconUrl: 'images/radiation.png', 
 						iconSize: [32, 32], 
@@ -74,7 +75,14 @@
 					icon: new Icon(feature.properties.icon)
 				}).addTo(map);
 			
-			marker.bindPopup(`<b>${feature.properties.title}</b> <img src="${feature.properties.image}" alt="${feature.properties.alt}"> <p>Year: ${feature.properties.year}</p> <p>${feature.properties.description}</p> <a href="${feature.properties.icon.read}" target="_blank">Read more here!</a>`);
+			marker.bindPopup(
+				`<b>${feature.properties.title}</b>
+				<img src="${feature.properties.image}" alt="${feature.properties.alt}" style="width: 100%; max-width: 250px height: auto;"> 
+				<figcaption style='font-size: smaller'>${feature.properties.figcaption}</figcaption> 
+				<p>Year: ${feature.properties.year}</p> 
+				<p>${feature.properties.description}</p> 
+				<a href="${feature.properties.icon.read}" target="_blank">Read more here!</a>`
+			);
 		
 			marker.feature = feature; // Store the feature data in the marker for later use
 			return marker;
