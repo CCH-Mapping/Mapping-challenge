@@ -34,42 +34,52 @@
 	
 	<!-- imports from leaflet-->
 	<script type="module">
-		import {LeafletMap, TileLayer, Marker, Circle, Polygon} from 'leaflet';
+		import {LeafletMap, TileLayer, Marker, Icon, Circle, Polygon} from 'leaflet';
         
-        // initializing map to the center of the US
+    // initializing map to the center of the US
         const map = new LeafletMap('map').setView([40.3,-96.6], 5);
 		
-        // the map code for the tile layer
+    // the map code for the tile layer
         new TileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}', {
 	        maxZoom: 19,
 	        attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 	        ext: 'png'}).addTo(map);
 
-		// adding markers to the map using GeoJSON data
-		new GeoJSON(geojsonFeature).addTo(map);
-
-		function onEachFeature(feature, layer) {
-			if (feature.properties && feature.properties.popupContent) {
-				layer.bindPopup(feature.properties.popupContent);
+	// creating a dataset for the map - longitude, latitude for coordinates
+		const dataset = [
+			{
+				type: 'Feature',
+				geometry: {type: 'Point', coordinates: [-106.32, 35.87]},
+				properties: {
+					title: 'Los Alamos, New Mexico',
+					description: 'During World War II, Los Alamos, New Mexico was transformed into "Site Y," a top-secret wartime laboratory and closed city dedicated to designing and building the world\'s first atomic weapons dropped in Trinity Site, New Mexico and Nagasaki and Hiroshima, Japan.',
+					year: 1943,
+					read: 'https://www.nps.gov/mapr/los-alamos.htm',
+					image: //'images/losalamos.jpg',
+					// alt: alternative text accessibility,
+					icon: { 
+						iconUrl: 'images/radiation.png', 
+						iconSize: [32, 32], 
+						iconAnchor: [16, 16], 
+						popupAnchor: [0, -16]
+					}
+				}
 			}
-		}
-		const geojsonFeature = {
-	"type": "Feature",
-	"properties": {
-		"name": "Coors Field",
-		"amenity": "Baseball Stadium",
-		"popupContent": "This is where the Rockies play!"
-	},
-	"geometry": {
-		"type": "Point",
-		"coordinates": [-104.99404, 39.75621]
-	}
-};
+		]
 
-new GeoJSON(geojsonFeature, {
-	onEachFeature: onEachFeature
-}).addTo(map);
-	</script>
+	// Create markers from dataset
+			const radiationIcon = dataset.map(feature => {
+				const [lon, lat] = feature.geometry.coordinates;
+				const marker = new Marker([lat, lon], {
+					icon: new Icon(feature.properties.icon)
+				}).addTo(map);
+			
+			marker.bindPopup(`<b>${feature.properties.title}</b> <img src="${feature.properties.image}" alt="${feature.properties.alt}"> <p>Year: ${feature.properties.year}</p> <p>${feature.properties.description}</p> <a href="${feature.properties.icon.read}" target="_blank">Read more here!</a>`);
+		
+			marker.feature = feature; // Store the feature data in the marker for later use
+			return marker;
+			});
+		</script>
 
 	
 </body>
