@@ -11,24 +11,80 @@
 		{"imports": {"leaflet": "https://cdn.jsdelivr.net/npm/leaflet@2.0.0-beta.1/dist/leaflet.js"},"integrity": {"https://cdn.jsdelivr.net/npm/leaflet@2.0.0-beta.1/dist/leaflet.js": "sha256-KSSQ64wnHC2i4zVNU79jUjWmdKCIJjLj/gkifFEluvo="}}
 	</script>
 	
-	<!-- Bootstrap CSS -->
-	 <!-- ENTER HERE -->
+	<!-- Fonts -->
+	 <link rel="preconnect" href="https://fonts.googleapis.com">
+	 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	 <link rel='stylesheet' href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap">
 
+	<!-- CSS for webpage 	-->
 	<style>
-		/* make map take up whole page */
+	/* make map take up whole page */
 		html, body{
 			margin: 0;
 			padding: 0;
 			height: 100%;
-			width: 100%;
+			/*width: 100%;*/
 		}
-		/* header styling */
+	
+		/* ensure the body takes up the full height of the viewport */
+		body {
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+		}
+
+		header {
+			flex-shrink: 0;
+		}
+		footer {
+			flex-shrink: 0;
+			background-color: #DCC04C;
+    		text-align: center;
+    		padding: 0;
+    		font-size: 0.8em;
+    		flex-shrink: 0;
+    		margin: 0;
+		}
+
+		#map {
+			flex: 1 1 auto;
+			min-height: 0px;
+			height:auto;	
+		}
+		
+	/* navbar styling */
+		.navbar-brand {
+			font-family: 'Manrope', sans-serif;
+			position:relative;
+		}
+		
+	/* brand title styling */
+		.navbar-brand .brand-title {
+			color: #000000;
+			text-transform: uppercase;
+			font-size: 3rem;
+			font-weight: bold;
+			margin: 0;
+		}
+
+	/* brand subtitle styling */
+		.navbar-brand .brand-subtitle {
+			color: #000000;
+			opacity: 0.6;
+			font-size: 1.2rem;
+			padding-bottom: 15px;
+		}
 	</style>
 </head>
 
 <body>
-	<header>Beyond the Manhattan Project: Mapping the Expansion of America’s Nuclear Complex, from the Manhattan Project to the Cold War</header>
-	
+	<nav class="navbar navbar-expand-sm py-lg-4 navbar-dark" id="mainNav" style="background: #DCC04C; height: auto; padding: 10px 0px 0px 10px;"><div>
+			<header class="navbar-brand"> 
+				<div class="brand-title"> Beyond the Manhattan Project</div> 
+				<div class="brand-subtitle">Mapping the Expansion of America’s Nuclear Complex, from the Manhattan Project to the Cold War</div>
+			</header>
+	</nav>
+
 	<!--map-->
 	<div id="map" style="height: 100%; width: 100%;"></div>
 	
@@ -170,6 +226,10 @@
 			});
 		</script>
 
-	
+	<footer>
+        <div class="container">
+            <p class="m-0 small">Copyright&nbsp;©&nbsp;ENTER 2026</p>
+        </div>
+    </footer>
 </body>
 </html>
