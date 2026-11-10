@@ -44,6 +44,7 @@
     		font-size: 0.8em;
     		flex-shrink: 0;
     		margin: 0;
+			font-family: 'Manrope', sans-serif;
 		}
 
 		#map {
@@ -243,6 +244,46 @@
 					}
 				}
 			},
+			// University of Chicago, Illinois
+			{
+				type: 'Feature',
+				geometry: {type: 'Point', coordinates: [-87.598889, 41.790278]},
+				properties: {
+					title: 'University of Chicago, Illinois',
+					description: 'The Metallurgical Laboratory (or Met Lab) was a scientific laboratory from 1942 to 1946 at the University of Chicago. It was established to study and use the newly discovered chemical element plutonium. It researched plutonium\'s chemistry and metallurgy, designed the world\'s first nuclear reactors to produce it, and developed chemical processes to separate it from other elements. After achieving the world\'s first controlled nuclear chain reaction under Stagg Field on December 2, 1942, operating an active nuclear reactor in a densely populated urban college campus became too hazardousIt and moved to Site A.',
+					year: 1942,
+					read: 'https://www.energy.gov/lm/metallurgical-laboratory-university-chicago',
+					image: 'images/metlab.jpg',
+					alt: 'Black-and-white historical photograph shows vintage cars parked along a street beside a massive stone building with towers, arched windows, and small awnings. Scene captures early automobile-era architecture and streetscape, with a leafy branch visible at upper right.',
+					figcaption: '<a href="https://commons.wikimedia.org/wiki/File:HD.5A.013_(10692501095).jpg">U.S. Department of Energy</a>, Public domain, via Wikimedia Commons',
+					icon: {
+						iconUrl: 'images/radiation.png', 
+						iconSize: [32, 32], 
+						iconAnchor: [16, 16], 
+						popupAnchor: [0, -16]
+					}
+				}
+			},
+			// University of Berkeley, California
+			{
+				type: 'Feature',
+				geometry: {type: 'Point', coordinates: [-122.25082, 37.87614]},
+				properties: {
+					title: 'University of Berkeley, California',
+					description: 'The University of California, Berkeley played a foundational and central role in the Manhattan Project. The Rad Lab, short for “Radiation Laboratory,” was the site of Manhattan Project research at the University of California, Berkeley. <a href="http://atomicheritage.org/profile/ernest-o-lawrence">Ernest Lawrence</a> formed the lab in 1931, three years after his arrival at the university.',
+					year: 1931,
+					read: 'https://ahf.nuclearmuseum.org/ahf/location/university-of-california-berkeley/',
+					image: 'images/radlab.jpg',
+					alt: 'Black-and-white photograph depicts a streetscape centered on a large clapboard house, with a tree and partial car at left and taller city buildings behind. A church spire and curved streetlamps rise above rooftops, highlighting contrast between residential architecture and urban surroundings.',
+					figcaption: '<a href="https://www.flickr.com/photos/berkeleylab/2826309568">Berkeley Lab</a>, <a href="https://creativecommons.org/licenses/by-nc-nd/2.0/deed.en">CC BY-NC-ND 2.0</a>',
+					icon: {
+						iconUrl: 'images/radiation.png', 
+						iconSize: [32, 32], 
+						iconAnchor: [16, 16], 
+						popupAnchor: [0, -16]
+					}
+				}
+			},
 		]
 
 	// Create markers from dataset
@@ -268,7 +309,7 @@
 
 	<footer>
         <div class="container">
-            <p class="m-0 small">Copyright&nbsp;©&nbsp;ENTER 2026</p>
+            <p class="m-0 small">Copyright&nbsp;©&nbsp;Beyond The Manhattan Project 2026</p>
         </div>
     </footer>
 </body>
