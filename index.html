@@ -53,9 +53,20 @@
 			height:auto;	
 		}
 		
+	/* container styling */
+		.container-fluid {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-right: 10px;
+			padding-right: 100px;
+			padding-left: 10px;
+		}
+
 	/* navbar styling */
 		.navbar-brand {
 			position:relative;
+			padding-left: 1.5rem;
 		}
 		
 	/* brand title styling */
@@ -65,18 +76,47 @@
 			font-size: 3rem;
 			font-weight: bold;
 			margin: 0;
+			padding-top: 15px;
 			font-family: 'Special Elite', normal;
 			letter-spacing: 0.1em;
 			text-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+			display: inline-block;
 		}
 
 	/* brand subtitle styling */
 		.navbar-brand .brand-subtitle {
 			color: #000000;
 			opacity: 0.6;
-			font-size: 1.4rem;
+			font-size: 1.5rem;
 			padding-bottom: 15px;
 			font-family: 'Manrope', sans-serif;
+		}
+
+	/* nav items styling */
+		.navbar-nav .nav-item {
+			font-size: 1.5rem;
+			font-weight: bold;
+			padding: 0.5rem 1rem;
+			display: inline-block;
+			font-family: 'Manrope', sans-serif;
+		}
+
+	/* button styling */
+		.navbar-nav .nav-item button {
+			background-color: #000000;
+			color: white;
+			border: none;
+			padding: 1rem 2rem;
+			cursor: pointer;
+			font-family: 'Manrope', sans-serif;
+			font-size: 1.3rem;
+			border-radius: 8px;
+		}
+
+		.navbar-nav .nav-item button:hover {
+			background-color: #61DE2A;
+			border: 1px solid #000000;
+			color: #000000;
 		}
 
 	</style>
@@ -84,10 +124,17 @@
 
 <body>
 	<nav class="navbar navbar-expand-sm py-lg-4 navbar-dark" id="mainNav" style="background: #DCC04C; height: auto; padding: 10px 0px 0px 10px;"><div>
+		<div class="container-fluid">
 			<header class="navbar-brand"> 
 				<div class="brand-title"> Beyond the Manhattan Project</div> 
 				<div class="brand-subtitle">Mapping the Expansion of America’s Nuclear Complex, from the Manhattan Project to the Cold War</div>
 			</header>
+			<div class="navbar-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><button onclick = "window.location.href='about.html'">About</button></li>
+				</ul>
+			</div>
+		</div>
 	</nav>
 
 	<!--map-->
