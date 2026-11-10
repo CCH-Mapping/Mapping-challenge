@@ -14,7 +14,7 @@
 	<!-- Fonts -->
 	 <link rel="preconnect" href="https://fonts.googleapis.com">
 	 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	 <link rel='stylesheet' href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap">
+	 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Special+Elite&display=swap" rel="stylesheet">
 
 	<!-- CSS for webpage 	-->
 	<style>
@@ -55,7 +55,6 @@
 		
 	/* navbar styling */
 		.navbar-brand {
-			font-family: 'Manrope', sans-serif;
 			position:relative;
 		}
 		
@@ -66,6 +65,8 @@
 			font-size: 3rem;
 			font-weight: bold;
 			margin: 0;
+			font-family: 'Special Elite', normal;
+			letter-spacing: 0.1em;
 		}
 
 	/* brand subtitle styling */
@@ -74,6 +75,7 @@
 			opacity: 0.6;
 			font-size: 1.2rem;
 			padding-bottom: 15px;
+			font-family: 'Manrope', sans-serif;
 		}
 	</style>
 </head>
@@ -294,12 +296,12 @@
 				}).addTo(map);
 			
 			marker.bindPopup(
-				`<div style= "padding: 0px 5px 5px 0px; font-size: large;"><b>${feature.properties.title}</b></div>
+				`<div style= "padding: 0px 5px 5px 0px; font-size: large; font-family: 'Special Elite', normal; letter-spacing: 0.1em;"><b>${feature.properties.title}</b></div>
 				<img src="${feature.properties.image}" alt="${feature.properties.alt}" style="width: 100%; max-width: 250px height: auto;"> 
-				<figcaption style='font-size: smaller'>${feature.properties.figcaption}</figcaption> 
+				<figcaption style='font-size: smaller; font-family: 'manrope', sans-serif;'>${feature.properties.figcaption}</figcaption> 
 				<p>Year: ${feature.properties.year}</p> 
-				<p>${feature.properties.description}</p> 
-				<a href="${feature.properties.read}" target="_blank">Read more here!</a>`
+				<p style='font-family: 'manrope', sans-serif;'>${feature.properties.description}</p> 
+				<a href="${feature.properties.read}" style='font-family: 'manrope', sans-serif;' target="_blank">Read more here!</a>`
 			);
 		
 			marker.feature = feature; // Store the feature data in the marker for later use
