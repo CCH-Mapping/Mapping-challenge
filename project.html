@@ -31,14 +31,79 @@
 
 		a { color: inherit; }
 
-		.site-header {
+		.navbar {
+			line-height: normal;
+		}
+
+		/* container styling */
+		.container-fluid {
 			display: flex;
-			align-items: center;
 			justify-content: space-between;
-			gap: 24px;
-			padding: 20px clamp(20px, 6vw, 88px);
-			background: var(--gold);
-			border-bottom: 1px solid rgba(29, 39, 35, 0.18);
+			align-items: center;
+			margin-right: 10px;
+			padding-right: 100px;
+			padding-left: 10px;
+		}
+
+	/* navbar styling */
+		.navbar-brand {
+			position:relative;
+			padding-left: 1.5rem;
+		}
+		
+	/* brand title styling */
+		.navbar-brand .brand-title {
+			color: #000000;
+			text-transform: uppercase;
+			font-size: 3rem;
+			font-weight: bold;
+			margin: 0;
+			padding-top: 15px;
+			font-family: 'Special Elite', normal;
+			letter-spacing: 0.1em;
+			text-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+			display: inline-block;
+		}
+
+	/* brand subtitle styling */
+		.navbar-brand .brand-subtitle {
+			color: #000000;
+			opacity: 0.6;
+			font-size: 1.5rem;
+			padding-bottom: 15px;
+			font-family: 'Manrope', sans-serif;
+		}
+
+	/* nav items styling */
+		.navbar-nav .nav-item {
+			font-size: 1.5rem;
+			font-weight: bold;
+			padding: 0.5rem 1rem;
+			display: inline-block;
+			font-family: 'Manrope', sans-serif;
+		}
+
+	/* button styling */
+		.navbar-nav .nav-item button {
+			background-color: #000000;
+			color: white;
+			border: none;
+			padding: .8rem 2rem;
+			cursor: pointer;
+			font-family: 'Manrope', sans-serif;
+			font-size: 1.3rem;
+			border-radius: 2px;
+		}
+
+		.navbar-nav .nav-item button:hover {
+			background-color: #61DE2A;
+			border: 1px solid #000000;
+			color: #000000;
+		}
+
+		.site-header {
+			position:relative;
+			padding-left: 1.5rem;
 		}
 
 		.brand {
@@ -48,19 +113,32 @@
 		}
 
 		.brand-name {
-			font-family: 'Special Elite', Georgia, serif;
-			font-size: clamp(1.15rem, 2.4vw, 1.8rem);
-			line-height: 1.2;
+			color: #000000;
+			text-transform: uppercase;
+			font-size: 3rem;
+			font-weight: bold;
+			margin: 0;
+			padding-top: 15px;
+			font-family: 'Special Elite', normal;
+			letter-spacing: 0.1em;
+			text-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
 		}
 
-		.brand-note, .eyebrow, .image-credit {
+		/*.brand-note, .eyebrow, .image-credit {
 			font-size: 0.72rem;
 			font-weight: 700;
 			letter-spacing: 0.08em;
 			text-transform: uppercase;
-		}
+		}*/
 
-		.brand-note { margin-top: 5px; }
+		.brand-note { 
+			color: #000000;
+			opacity: 0.6;
+			font-size: 1.5rem;
+			padding-bottom: 15px;
+			font-family: 'Manrope', sans-serif;
+			display: inline-block;
+		 }
 
 		.map-link {
 			flex: 0 0 auto;
@@ -248,13 +326,26 @@
 	</style>
 </head>
 <body>
-	<header class="site-header">
+	<nav class="navbar" id="mainNav" style="background: #DCC04C; height: auto; padding: 10px 0px 0px 10px;"><div>
+		<div class="container-fluid">
+			<header class="navbar-brand"> 
+				<div class="brand-title"> Beyond the Manhattan Project</div> 
+				<div class="brand-subtitle">Mapping America's Nuclear Complex</div>
+			</header>
+			<div class="navbar-nav">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><button onclick = "window.location.href='index.html'">Return to Map</button></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- <header class="site-header" style="background: #DCC04C; height: auto; padding: 10px 0px 0px 10px;">
 		<a class="brand" href="index.html">
 			<span class="brand-name">Beyond the Manhattan Project</span>
 			<span class="brand-note">Mapping America's nuclear complex</span>
 		</a>
 		<a class="map-link" href="index.html">Return to map</a>
-	</header>
+	</header> -->
 
 	<main>
 		<section class="hero" aria-labelledby="page-title">
@@ -317,6 +408,6 @@
 		</aside>
 	</main>
 
-	<footer>Beyond the Manhattan Project · 2026</footer>
+	<footer class="m-0 small">Copyright&nbsp;©&nbsp;Beyond The Manhattan Project 2026</footer>
 </body>
 </html>
