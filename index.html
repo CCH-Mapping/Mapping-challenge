@@ -47,10 +47,15 @@
 			font-family: 'Manrope', sans-serif;
 		}
 
-		#map {
+		.map-area {
 			flex: 1 1 auto;
-			min-height: 0px;
-			height:auto;	
+			min-height: 0;
+			position: relative;
+		}
+
+		#map {
+			width: 100%;
+			height: 100%;
 		}
 		
 	/* container styling */
@@ -119,10 +124,169 @@
 			color: #000000;
 		}
 
+		.timeline-control {
+			position: absolute;
+			z-index: 1000;
+			left: 16px;
+			bottom: 16px;
+			display: grid;
+			grid-template-columns: 1fr auto;
+			align-items: center;
+			gap: 5px 12px;
+			width: min(310px, calc(100% - 32px));
+			padding: 10px 12px 9px;
+			border: 1px solid #28463a;
+			border-top: 3px solid #28463a;
+			background: rgba(247, 246, 240, 0.96);
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+			font-family: 'Manrope', sans-serif;
+		}
+
+		.timeline-year {
+			display: flex;
+			align-items: baseline;
+			gap: 12px;
+		}
+
+		.timeline-year label {
+			font-size: 0.9rem;
+			font-weight: 700;
+		}
+
+		#timelineYear {
+			color: #28463a;
+			font-family: 'Special Elite', Georgia, serif;
+			font-size: 1.2rem;
+		}
+
+		#timelineSlider {
+			grid-column: 1 / -1;
+			grid-row: 2;
+			width: 100%;
+			margin: 0;
+			accent-color: #28463a;
+			cursor: pointer;
+		}
+
+		#locationCount {
+			grid-column: 2;
+			grid-row: 1;
+			margin: 0;
+			color: #39443e;
+			font-size: 0.7rem;
+			text-align: right;
+		}
+
+		.timeline-endpoints {
+			grid-column: 1 / -1;
+			grid-row: 3;
+			display: flex;
+			justify-content: space-between;
+			color: #59635c;
+			font-size: 0.65rem;
+			line-height: 1;
+		}
+
+		#timelineSlider:focus-visible {
+			outline: 2px solid #28463a;
+			outline-offset: 4px;
+		}
+
+		#projectIntro {
+			width: min(560px, calc(100vw - 32px));
+			padding: 0;
+			border: 1px solid #1d2723;
+			border-radius: 4px;
+			color: #1d2723;
+			box-shadow: 0 18px 60px rgba(0, 0, 0, 0.3);
+			font-family: 'Manrope', sans-serif;
+		}
+
+		#projectIntro::backdrop {
+			background: rgba(15, 23, 19, 0.72);
+		}
+
+		.modal-heading {
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+			gap: 20px;
+			padding: 24px 28px 18px;
+			background: #DCC04C;
+		}
+
+		.modal-heading h2 {
+			margin: 0;
+			font-family: 'Special Elite', Georgia, serif;
+			font-size: clamp(1.45rem, 5vw, 2rem);
+			font-weight: 400;
+			line-height: 1.2;
+		}
+
+		.modal-close {
+			flex: 0 0 auto;
+			width: 36px;
+			height: 36px;
+			border: 1px solid #1d2723;
+			border-radius: 2px;
+			background: transparent;
+			color: #1d2723;
+			font-size: 1.5rem;
+			line-height: 1;
+			cursor: pointer;
+		}
+
+		.modal-copy {
+			margin: 0;
+			padding: 22px 28px 26px;
+			color: #39443e;
+			font-size: 1rem;
+			line-height: 1.7;
+		}
+
+		.modal-actions {
+			display: flex;
+			justify-content: flex-end;
+			padding: 0 28px 26px;
+		}
+
+		.modal-actions button {
+			padding: 12px 18px;
+			border: 1px solid #1d2723;
+			border-radius: 2px;
+			background: #1d2723;
+			color: #fff;
+			font-family: 'Manrope', sans-serif;
+			font-size: 0.95rem;
+			font-weight: 700;
+			cursor: pointer;
+		}
+
+		.modal-close:focus-visible, .modal-actions button:focus-visible {
+			outline: 3px solid #28463a;
+			outline-offset: 3px;
+		}
+
 	</style>
 </head>
 
 <body>
+	<dialog id="projectIntro" aria-labelledby="projectIntroTitle" aria-describedby="projectIntroDescription">
+		<div class="modal-heading">
+			<h2 id="projectIntroTitle">Beyond the Manhattan Project</h2>
+			<form method="dialog">
+				<button class="modal-close" aria-label="Close introduction">&times;</button>
+			</form>
+		</div>
+		<p class="modal-copy" id="projectIntroDescription">Explore how research labs, production facilities, and test sites across the United States helped build the nation’s nuclear complex, from early research through the Cold War. Select a marker to discover the history of each place.</p>
+		<div class="modal-actions">
+			<form method="dialog"><button>Explore the map</button></form>
+		</div>
+	</dialog>
+	<script>
+		document.getElementById('projectIntro').showModal();
+	</script>
+
 	<nav class="navbar navbar-expand-sm py-lg-4 navbar-dark" id="mainNav" style="background: #DCC04C; height: auto; padding: 10px 0px 0px 10px;"><div>
 		<div class="container-fluid">
 			<header class="navbar-brand"> 
@@ -131,14 +295,26 @@
 			</header>
 			<div class="navbar-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><button onclick = "window.location.href='about.html'">About</button></li>
+					<li class="nav-item"><button onclick = "window.location.href='project.html'">About</button></li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 
 	<!--map-->
-	<div id="map" style="height: 100%; width: 100%;"></div>
+	<div class="map-area">
+		<div id="map"></div>
+
+		<section class="timeline-control" aria-label="Map timeline">
+			<div class="timeline-year">
+				<label for="timelineSlider">Timeline</label>
+				<output id="timelineYear" for="timelineSlider" aria-live="polite">1931</output>
+			</div>
+			<input id="timelineSlider" type="range" min="1931" max="1970" step="1" value="1931" aria-describedby="locationCount timelineEndpoints">
+			<p id="locationCount" aria-live="polite">1 of 9 locations shown</p>
+			<div class="timeline-endpoints" id="timelineEndpoints" aria-hidden="true"><span>1931</span><span>1970</span></div>
+		</section>
+		</div>
 	
 	<!-- imports from leaflet-->
 	<script type="module">
@@ -338,11 +514,11 @@
 		]
 
 	// Create markers from dataset
-			const radiationIcon = dataset.map(feature => {
+			const markers = dataset.map(feature => {
 				const [lon, lat] = feature.geometry.coordinates;
 				const marker = new Marker([lat, lon], {
 					icon: new Icon(feature.properties.icon)
-				}).addTo(map);
+				});
 			
 			marker.bindPopup(
 				`<div style= "padding: 0px 5px 5px 0px; font-size: large; font-family: 'Special Elite', normal; letter-spacing: 0.1em;"><b>${feature.properties.title}</b></div>
@@ -356,6 +532,30 @@
 			marker.feature = feature; // Store the feature data in the marker for later use
 			return marker;
 			});
+
+			const timelineSlider = document.getElementById('timelineSlider');
+			const timelineYear = document.getElementById('timelineYear');
+			const locationCount = document.getElementById('locationCount');
+
+			function updateTimeline() {
+				const selectedYear = Number(timelineSlider.value);
+				let visibleLocationCount = 0;
+
+				timelineYear.textContent = selectedYear;
+				markers.forEach(marker => {
+					if (marker.feature.properties.year <= selectedYear) {
+						visibleLocationCount += 1;
+						if (!map.hasLayer(marker)) marker.addTo(map);
+					} else if (map.hasLayer(marker)) {
+						map.removeLayer(marker);
+					}
+				});
+
+				locationCount.textContent = `${visibleLocationCount} of ${dataset.length} locations shown`;
+			}
+
+			timelineSlider.addEventListener('input', updateTimeline);
+			updateTimeline();
 		</script>
 
 	<footer>
