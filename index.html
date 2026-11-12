@@ -393,7 +393,7 @@
 		import {LeafletMap, TileLayer, Marker, Icon, Circle, Polygon} from 'leaflet';
         
     // initializing map to the center of the US
-        const map = new LeafletMap('map').setView([40.3,-96.6], 5);
+        const map = new LeafletMap('map').setView([40.3,-96.6], 5).setMaxBounds([[24.396308,-125.0],[49.384358,-66.93457]]);
 		
     // the map code for the tile layer
         new TileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}', {
