@@ -68,6 +68,14 @@
 			padding-left: 10px;
 		}
 
+		.navbar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background-color: #DCC04C;
+			padding: 10px 0px 0px 10px;
+		}
+
 	/* navbar styling */
 		.navbar-brand {
 			position:relative;
@@ -267,6 +275,19 @@
 			outline-offset: 3px;
 		}
 
+		@media (max-width: 720px) {
+			.navbar { align-items: flex-start; }
+			.navbar-brand { max-width: 34ch; font-size: 0.62rem; }
+			.navbar-brand .brand-title { max-width: 34ch; font-size: 1rem; }
+			.navbar-brand .brand-subtitle { max-width: 34ch; font-size: 1rem; }
+			.navbar-nav .nav-item button { font-size: 0.9rem; padding: 0.5rem 1rem; }
+			.map-area { min-height: auto; }
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			*, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+		}
+
 	</style>
 </head>
 
@@ -289,7 +310,7 @@
 
 
 <!-- navbar -->
-	<nav class="navbar" id="mainNav" style="background: #DCC04C; height: auto; padding: 10px 0px 0px 10px;"><div>
+	<nav class="navbar" id="mainNav"><div>
 		<div class="container-fluid">
 			<header class="navbar-brand"> 
 				<div class="brand-title"> Beyond the Manhattan Project</div> 
