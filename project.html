@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<meta name="description" content="About Beyond the Manhattan Project, an interactive map tracing the places behind America's nuclear complex.">
 	<title>About the Project | Beyond the Manhattan Project</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,6 +20,13 @@
 		}
 
 		* { box-sizing: border-box; }
+
+		html, body{
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%;
+		}
 
 		body {
 			margin: 0;
@@ -124,12 +131,12 @@
 			text-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
 		}
 
-		/*.brand-note, .eyebrow, .image-credit {
+		.brand-note, .eyebrow, .image-credit {
 			font-size: 0.72rem;
 			font-weight: 700;
 			letter-spacing: 0.08em;
 			text-transform: uppercase;
-		}*/
+		}
 
 		.brand-note { 
 			color: #000000;
@@ -289,6 +296,7 @@
 			padding: 28px max(20px, calc((100vw - 1180px) / 2));
 			background: var(--green);
 			color: #fff;
+			max-width: 100%auto;
 		}
 
 		.closing p { margin: 0; }
