@@ -393,7 +393,7 @@
 		import {LeafletMap, TileLayer, Marker, Icon, Circle, Polygon} from 'leaflet';
         
     // initializing map to the center of the US
-        const map = new LeafletMap('map').setView([40.3,-96.6], 5);
+        const map = new LeafletMap('map').setView([40.3,-96.6], 5).setMaxBounds([[24.396308,-125.0],[49.384358,-66.93457]]);
 		
     // the map code for the tile layer
         new TileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}', {
@@ -632,9 +632,9 @@
 					description: 'The facility extruded and machined uranium metal under contract with the U.S. Atomic Energy Commission (AEC) from 1954 to 1961. The plant produced uranium fuel elements for Hanford and Savannah River Plant reactors, as well as thorium and uranium extrusion work. The Bridgeport Brass Company was also a major supplier of uranium metal to the Manhattan Project during World War II, producing uranium for the first atomic bombs.',
 					year: 1942,
 					read: 'https://eecap.org/bridgeport-brass/',
-					image: 'images/radiation.png',
-					alt: 'Radiation symbol used because a Bridgeport Brass Company photo was not available.',
-					figcaption: 'Radiation icon',
+					image: 'images/bridgeport.jpg',
+					alt: 'Exterior photograph of the Bridgeport Brass Company.',
+					figcaption: 'Courtesy Department of Energy, Office of Legacy Management',
 					icon: { 
 						iconUrl: 'images/radiation.png', 
 						iconSize: [32, 32], 
