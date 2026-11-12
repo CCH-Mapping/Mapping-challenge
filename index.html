@@ -287,6 +287,52 @@
 			.navbar-nav .nav-item button { font-size: 0.9rem; padding: 0.5rem 1rem; }
 		}
 
+		@media (max-height: 500px) and (orientation: landscape) {
+			.navbar {
+				padding: 4px 0 4px 6px;
+			}
+			.container-fluid {
+				align-items: center;
+				margin-right: 0;
+				padding-left: 4px;
+				padding-right: 6px;
+			}
+			.navbar-brand {
+				padding-left: 0.5rem;
+				max-width: none;
+			}
+			.navbar-brand .brand-title {
+				max-width: none;
+				padding-top: 2px;
+				font-size: 1rem;
+				letter-spacing: 0.05em;
+				white-space: nowrap;
+			}
+			.navbar-brand .brand-subtitle {
+				max-width: none;
+				padding-bottom: 2px;
+				font-size: 0.85rem;
+			}
+			.navbar-nav .nav-item {
+				padding: 0.25rem;
+			}
+			.navbar-nav .nav-item button {
+				padding: 0.35rem 0.7rem;
+				font-size: 0.75rem;
+			}
+			#projectIntro {
+				max-height: calc(100dvh - 24px);
+				overflow-y: auto;
+			}
+			.modal-heading { padding: 12px 16px 10px; }
+			.modal-copy {
+				padding: 12px 16px 14px;
+				font-size: 0.85rem;
+				line-height: 1.4;
+			}
+			.modal-actions { padding: 0 16px 14px; }
+		}
+
 		@media (prefers-reduced-motion: reduce) {
 			*, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
 		}
