@@ -280,26 +280,6 @@
 			font-size: 0.92rem;
 		}
 
-		.closing {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			gap: 24px;
-			margin: 0 calc((min(1180px, 100vw - 40px) - 100vw) / 2);
-			padding: 28px max(20px, calc((100vw - 1180px) / 2));
-			background: var(--green);
-			color: #fff;
-		}
-
-		.closing p { margin: 0; }
-
-		.closing a {
-			flex: 0 0 auto;
-			color: #fff;
-			font-weight: 800;
-			text-underline-offset: 4px;
-		}
-
 		footer {
 			padding: 15px 20px;
 			background: var(--gold);
@@ -317,7 +297,6 @@
 			.section-heading { grid-template-columns: 1fr; gap: 18px; }
 			.themes { grid-template-columns: 1fr; margin-top: 30px; }
 			.theme, .theme + .theme { padding: 18px 0; border-left: 0; border-bottom: 1px solid var(--line); }
-			.closing { align-items: flex-start; flex-direction: column; }
 		}
 
 		@media (prefers-reduced-motion: reduce) {
@@ -402,10 +381,6 @@
 			</div>
 		</section>
 
-		<aside class="closing">
-			<p></p>
-			<a href="index.html">Open the interactive map</a>
-		</aside>
 	</main>
 
 	<footer class="m-0 small">Copyright&nbsp;©&nbsp;Beyond The Manhattan Project 2026</footer>
