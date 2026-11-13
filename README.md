@@ -43,21 +43,32 @@ Historical descriptions and images draw on a range of linked sources, including 
 
 
 
-## Build with
+## Built with
 
 - **HTML, CSS, and JavaScript** — page structure, styling, and location data
-- **[Leaflet](https://leafletjs.com/)** — interactive map and markers (loaded from jsDelivr)
+- **[Leaflet 2.0.o-beta2](https://leafletjs.com/)** — interactive map and markers (loaded from jsDelivr)
 - **[Stadia Maps](https://stadiamaps.com/)** — map tiles, with attribution to OpenMapTiles and OpenStreetMap contributors
 - **GitHub Pages** — suitable for static hosting; no build tools are required
 
 ## Repository Structure
 ***************
-index.html            landing page: title, intro modal, slider bar, and the map container
-project.html.         project description page
-img/                  one image per location, named to match its entry in locations.json
+index.html            landing page: title, intro modal, slider bar, the map container, css code
+project.html          project description page, css code
+images/               one image per location, named to match its entry in locations.json
+assets/Manrope        contains the downloadable files for the "Manrope" font used throughout the site
+README.md             this file
 
 ## Credits and licensing
 ***********
+Basemap © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright). Map data is available under the Open Database License. The standard-style tiles are a Produced Work of the OpenStreetMap Foundation and carry the same attribution.
+
+Basemap © [OpenMapTiles](https://openmaptiles.org/). OpenMapTiles is free to use, extend, and build upon.
+
+© [Stadia Maps](https://stadiamaps.com/attribution/). Stadia Maps was used to create the gray map style seen on the site.
+
+Location images are drawn from openly licensed sources. Each image's photographer, source, and license appear in its popup.
+
+The on-load intro modal follows the approach used by [Mapping Morton Village](https://github.com/beyeraut/mappingmvfinal-master).
 
 ## Authors
 Amelia Konda-Harpeer, Computational Cultural Heritage Graduate Fellow in 2026, Michigan State University
