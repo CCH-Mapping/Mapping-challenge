@@ -52,11 +52,11 @@ Historical descriptions and images draw on a range of linked sources, including 
 
 ## Repository Structure
 ***************
-index.html            landing page: title, intro modal, slider bar, the map container, css code
-project.html          project description page, css code
-images/               one image per location, named to match its entry in locations.json
-assets/Manrope        contains the downloadable files for the "Manrope" font used throughout the site
-README.md             this file
+- **index.html            landing page: title, intro modal, slider bar, the map container, css code
+- **project.html          project description page, css code
+- **images/               one image per location, named to match its entry in locations.json
+- **assets/Manrope        contains the downloadable files for the "Manrope" font used throughout the site
+- **README.md             this file
 
 ## Credits and licensing
 ***********
