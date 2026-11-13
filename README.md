@@ -51,7 +51,15 @@ Historical descriptions and images draw on a range of linked sources, including 
 - **GitHub Pages** — suitable for static hosting; no build tools are required
 
 ## Repository Structure
-
+***************
 index.html            landing page: title, intro modal, slider bar, and the map container
 project.html.         project description page
 img/                  one image per location, named to match its entry in locations.json
+
+## Credits and licensing
+***********
+
+## Authors
+Amelia Konda-Harpeer, Computational Cultural Heritage Graduate Fellow in 2026, Michigan State University
+
+Nonoka Koga, Computational Cultural Heritage Graduate Fellow in 2026, Michigan State University
